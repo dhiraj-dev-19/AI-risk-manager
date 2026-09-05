@@ -60,18 +60,18 @@ def evaluate_decision(scored_transaction: Dict[str, Any]) -> Dict[str, Any]:
     threshold = float(cfg.get("optimal_threshold", 0.35))
 
     # Map score to band and action
-    if score < threshold:
-        risk_band = "low"
-        action = "allow"
-    elif score < threshold + 0.25:
-        risk_band = "medium"
-        action = "flag_for_review"
-    elif score < 0.85:
-        risk_band = "high"
-        action = "hold_for_verification"
-    else:
+    if score >= 0.85:
         risk_band = "very_high"
         action = "auto_decline"
+    elif score >= max(threshold, 0.70):
+        risk_band = "high"
+        action = "hold_for_verification"
+    elif score >= threshold:
+        risk_band = "medium"
+        action = "flag_for_review"
+    else:
+        risk_band = "low"
+        action = "allow"
 
     # Enforce strict defense-only action constraint
     if action not in DEFENSE_ACTIONS:

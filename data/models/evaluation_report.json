@@ -1,18 +1,18 @@
 {
   "model_type": "XGBClassifier",
-  "train_samples": 12036,
-  "held_out_samples": 3009,
-  "scale_pos_weight_used": 38.99,
+  "train_samples": 12312,
+  "held_out_samples": 3078,
+  "scale_pos_weight_used": 20.34,
   "held_out_time_range": {
     "start": "2026-01-25 00:43:18",
     "end": "2026-01-30 23:57:02"
   },
   "evaluation_metrics": {
-    "threshold_used": 0.35,
-    "precision": 0.05272407732864675,
-    "recall": 0.4225352112676056,
-    "pr_auc": 0.06170731844371947,
-    "roc_auc": 0.6566122398105447
+    "threshold_used": 0.29,
+    "precision": 0.185,
+    "recall": 0.7928571428571428,
+    "pr_auc": 0.6747658826113565,
+    "roc_auc": 0.8627200233394923
   },
   "feature_names": [
     "amount",
